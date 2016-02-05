@@ -1,4 +1,4 @@
-var asyncWorker = require('./build/Release/xmsbridgeAsync');
+var functionfactory = require('./build/Release/xmsbridge');
 var http = require('http');
 
 var options = {
@@ -15,21 +15,14 @@ var Pool = require('generic-pool').Pool;
 var pool = new Pool({
     name     : 'ibmmqxms',
     create   : function(callback) {
-        var Client = require('mysql').Client;
-        var c = new Client();
-        c.user     = 'scott';
-        c.password = 'tiger';
-        c.database = 'mydb';
-        c.connect();
-
-        // parameter order: err, resource
-        // new in 1.0.6
-        callback(null, c);
+        var connection = functionfactory.connectionWrapper("ServCon","localhost","1414","QM_idea_PC","queue://default");
+        functionfactory.startConnection(connection);
+        callback(null, connection);
     },
-    destroy  : function(client) { client.end(); },
+    destroy  : function(connection) { functionfactory.closeConnection(connection); },
     max      : 10,
     // optional. if you set this, make sure to drain() (see step 3)
-    min      : 2,
+    min      : 1,
     // specifies how long a resource can stay idle in pool before being removed
     idleTimeoutMillis : 30000,
      // if true, logs via console.log - can also be a function
@@ -40,15 +33,28 @@ var callback = function(response) {
       console.log("success");
 }
 
-var server = http.createServer(function(request, response) {
-  asyncWorker.asyncReceiver("ServCon","localhost","1414","QM_idea_PC","queue://default",function(err,val){
-     console.log("so so so");
-     console.log("Done here");
-     response.writeHead(200, { "Content-Type": "text/plain" });
-     response.end("...............Good");
-	   response = null;
-  });
-});
+var server = 
+      http.createServer(function(request, response) {
+                      pool.acquire(function(err, connection) {
+                      if (err) {
+                          // handle error - this is generally the err from your
+                          // factory.create function  
+                          console.log("connection not available");
+                          response.writeHead(200, { "Content-Type": "text/plain" });
+                          response.end("...............Bad");
+                          response = null;
+                      }
+                      else {
+                              var msg = functionfactory.receiveMessage(connection);
+                              console.log(msg);
+                              console.log("Done here");
+                              response.writeHead(200, { "Content-Type": "text/plain" });
+                              response.end("...............Good");
+                              response = null;
+                              pool.release(connection);
+                      }
+                  });
+    });
  
 console.log("Starting up the server");
 server.listen(9099);

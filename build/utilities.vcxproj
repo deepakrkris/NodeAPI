@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{159F3510-6C42-8694-FD42-34E1DCB694A7}</ProjectGuid>
+    <ProjectGuid>{D4557AC3-4D90-5CB1-A972-4679749EF614}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>utilities</RootNamespace>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>

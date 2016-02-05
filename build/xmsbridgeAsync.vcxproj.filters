@@ -4,30 +4,6 @@
     <Filter Include="..">
       <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="..">
-      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="..\dependencies">
-      <UniqueIdentifier>{27BF0B9E-C12C-E3A8-6F99-B211308347CE}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="..\dependencies\xms">
-      <UniqueIdentifier>{EA8BFDC1-662B-5646-8DC4-7033FDF87CCE}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="..\dependencies\xms\common">
-      <UniqueIdentifier>{2F5FD094-EF52-77F7-7AA8-4327A01BF747}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="..">
-      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="..">
-      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="..">
-      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="..">
-      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="C:">
       <UniqueIdentifier>{7B735499-E5DD-1C2B-6C26-70023832A1CF}</UniqueIdentifier>
     </Filter>
@@ -60,22 +36,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\MessageReceiver.cpp">
-      <Filter>..</Filter>
-    </ClCompile>
-    <ClCompile Include="..\dependencies\xms\common\helperfunctions.c">
-      <Filter>..\dependencies\xms\common</Filter>
-    </ClCompile>
     <ClCompile Include="..\XmsBridgeAsync.cc">
-      <Filter>..</Filter>
-    </ClCompile>
-    <ClCompile Include="..\utilities.cc">
-      <Filter>..</Filter>
-    </ClCompile>
-    <ClCompile Include="..\MessageListener.cpp">
-      <Filter>..</Filter>
-    </ClCompile>
-    <ClCompile Include="..\ExceptionListener.cpp">
       <Filter>..</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\Akhilpriya\AppData\Roaming\npm\node_modules\node-gyp\src\win_delay_load_hook.c">

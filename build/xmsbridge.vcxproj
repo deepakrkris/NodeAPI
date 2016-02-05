@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{7BA3F271-9F86-9E96-69EE-A2C9DADA45A8}</ProjectGuid>
+    <ProjectGuid>{FB6E0CBF-C1AE-68B8-7A80-C737637B976C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>xmsbridge</RootNamespace>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
@@ -141,12 +141,11 @@
     <ClCompile Include="..\utilities.cc"/>
     <ClCompile Include="..\MessageListener.cpp"/>
     <ClCompile Include="..\ExceptionListener.cpp"/>
-    <ClCompile Include="..\MessageReceiver.cpp"/>
     <ClCompile Include="C:\Users\Akhilpriya\AppData\Roaming\npm\node_modules\node-gyp\src\win_delay_load_hook.c"/>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="utilities.vcxproj">
-      <Project>{159F3510-6C42-8694-FD42-34E1DCB694A7}</Project>
+      <Project>{D4557AC3-4D90-5CB1-A972-4679749EF614}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>

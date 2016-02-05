@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{3082A6F3-A2AB-DF20-97CC-07AD2240C46B}</ProjectGuid>
+    <ProjectGuid>{509A5C80-22CA-D352-E297-B7F9E79EDAED}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>xmsbridgeAsync</RootNamespace>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
@@ -136,19 +136,8 @@
     <None Include="..\binding.gyp"/>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\MessageReceiver.cpp"/>
-    <ClCompile Include="..\dependencies\xms\common\helperfunctions.c"/>
     <ClCompile Include="..\XmsBridgeAsync.cc"/>
-    <ClCompile Include="..\utilities.cc"/>
-    <ClCompile Include="..\MessageListener.cpp"/>
-    <ClCompile Include="..\ExceptionListener.cpp"/>
     <ClCompile Include="C:\Users\Akhilpriya\AppData\Roaming\npm\node_modules\node-gyp\src\win_delay_load_hook.c"/>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="utilities.vcxproj">
-      <Project>{159F3510-6C42-8694-FD42-34E1DCB694A7}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
   <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets"/>

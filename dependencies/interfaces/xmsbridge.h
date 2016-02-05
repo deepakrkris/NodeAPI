@@ -1,9 +1,12 @@
+#include <iostream>
+#include <xms.hpp>
 #include <node.h>
+#include <MessageListener.hpp>
+#include <ExceptionListener.hpp>
 #include <utilities.h>
 #include <nan.h>
-#include <ListenerConfig.h>
-#include <xms.hpp>
 #include "MessageData.h"
+#include <Connection.h>
 
 using namespace std;
 using namespace xms;
@@ -22,6 +25,7 @@ using namespace xms;
 
 /*************************************************************************/
 
+
 namespace xmsbridge {
 
 using v8::Function;
@@ -36,6 +40,37 @@ using v8::Handle;
 using v8::HandleScope;
 using v8::Persistent;
 
+
+class ListenerConfig : public Nan::ObjectWrap {
+	public:
+	      static void Init(v8::Local<v8::Object> exports);
+	      static v8::Local<v8::Object> New(xms::String* queueManager, xms::String* hostName, xms::String* channelName, xmsCHAR * port, xmsCHAR * providerVersion, xms::String* destinationURI, std::string listenerName,v8::Local<v8::Function> *callback);
+            ListenerConfig::ListenerConfig();
+            xms::Connection createConnection();
+            xms::Session createSession();
+            void closeConnection();
+            xms::ConnectionFactory connectionFactory;
+            xms::Session session;
+            xms::MessageConsumer consumer;
+            xms::Connection connection;
+            xms::Destination destination;
+            xmsbridge::MessageListener msgLsr;
+            xmsbridge::ExceptionListener expLsr;
+            string listenerName;
+            v8::Persistent<v8::Function> callback;
+            void SetListener();
+            void startConnection();
+            void PrintConfig();
+      	~ListenerConfig();
+            uv_async_t* asyncMsg;
+            uv_mutex_t mutex;
+            Isolate* isolate;
+            
+	private:
+	     explicit ListenerConfig(xms::String* queueManager, xms::String* hostName, xms::String* channelName, xmsCHAR * port, xmsCHAR * providerVersion, xms::String* destinationURI,std::string listenerName);
+
+	     static Nan::Persistent<v8::Function> constructor;
+};
 // Extracts a C string from a V8 Utf8Value.
 char* ToCString(const v8::String::Utf8Value& value) {
   return *value ? *value : "<string conversion failed>";
